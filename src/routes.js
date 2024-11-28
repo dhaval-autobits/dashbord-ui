@@ -1,7 +1,12 @@
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+
+//Add Alert Components
 const Alert = React.lazy(() => import('./views/dashboard/Alerts'))
+const CreateAlert = React.lazy(() => import('./views/Alerts/CreateAlert'))
+
+
 
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
@@ -56,7 +61,11 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+
   { path: '/alerts', name: 'Alert', element: Alert },
+  { path: '/alert-configuration/add', name: 'CreateAlert', element: CreateAlert },
+
+
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },

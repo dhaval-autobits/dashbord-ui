@@ -51,6 +51,8 @@ const AppHeader = () => {
         >
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
+
+        {/* Header Navigation Section */}
         <CHeaderNav className="d-none d-md-flex">
           <CNavItem>
             <CNavLink to="/dashboard" as={NavLink}>
@@ -58,12 +60,35 @@ const AppHeader = () => {
             </CNavLink>
           </CNavItem>
           <CNavItem>
-            <CNavLink href="/">Alerts</CNavLink>
+            <CNavLink to="/alerts" as={NavLink}>
+              Alerts
+            </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">Settings</CNavLink>
           </CNavItem>
+
+          {/* New Alert Configurations Dropdown */}
+          <CNavItem>
+            <CDropdown variant="nav-item" placement="bottom-end">
+              <CDropdownToggle caret={false}>
+                Alert Configurations
+              </CDropdownToggle>
+              <CDropdownMenu>
+                <CDropdownItem>
+                  <NavLink to="/alert-configuration/add" className="text-decoration-none">Add Alert Config</NavLink>
+                </CDropdownItem>
+                <CDropdownItem>
+                  <NavLink to="/alert-configuration/view" className="text-decoration-none">View Alerts</NavLink>
+                </CDropdownItem>
+                <CDropdownItem>
+                  <NavLink to="/alert-configuration/manage" className="text-decoration-none">Manage Configurations</NavLink>
+                </CDropdownItem>
+              </CDropdownMenu>
+            </CDropdown>
+          </CNavItem>
         </CHeaderNav>
+
         <CHeaderNav className="ms-auto">
           <CNavItem>
             <CNavLink href="#">
@@ -81,10 +106,13 @@ const AppHeader = () => {
             </CNavLink>
           </CNavItem>
         </CHeaderNav>
+
         <CHeaderNav>
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
           </li>
+
+          {/* Color Mode Dropdown */}
           <CDropdown variant="nav-item" placement="bottom-end">
             <CDropdownToggle caret={false}>
               {colorMode === 'dark' ? (
@@ -125,6 +153,7 @@ const AppHeader = () => {
               </CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
+
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
           </li>
